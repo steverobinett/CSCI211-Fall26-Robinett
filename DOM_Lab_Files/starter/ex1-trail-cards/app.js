@@ -24,7 +24,7 @@ const trails = [
 
 const cardsBox = document.querySelector("#cards");
 const featuredBox = document.querySelector("#featured");
-const totalMiles = document.querySelector("#featured");
+const totalMiles = document.querySelector("#totalMiles");
 
 //make trail card from one trail obj
 function createTrailCard(trail){
