@@ -26,7 +26,6 @@ const cardsBox = document.querySelector("#cards");
 const featuredBox = document.querySelector("#featured");
 const totalMiles = document.querySelector("#totalMiles");
 
-//make trail card from one trail obj
 function createTrailCard(trail){
 
   const card = document.createElement("div");
@@ -36,26 +35,26 @@ function createTrailCard(trail){
   heading.textContent = trail.name;
 
   const info = document.createElement("p");
-  info.textContent = `${trail.miles}, ${trail.level}`;
-  
+  info.textContent = `${trail.miles}, ${trail.level}`
+
   card.append(heading, info);
   return card;
 }
 
-//build every card "off page" and attach once
+//build every card "off page" and attach once to DOM
 
 const fragment = document.createDocumentFragment();
 let total = 0;
-let longest = trails[0];  // remember .. this is an Object!
+let longest = trails[0];  // this is an OBJECT
 
 for(const trail of trails){
   fragment.appendChild(createTrailCard(trail));
-  total += trail.miles
+  total += trail.miles;
   if(trail.miles > longest.miles){
     longest = trail;
   }
 }
-cardsBox.appendChild(fragment);
 
+cardsBox.appendChild(fragment); // magic!
 featuredBox.appendChild(createTrailCard(longest));
 totalMiles.textContent = `Total: ${total.toFixed(1)} miles`;
