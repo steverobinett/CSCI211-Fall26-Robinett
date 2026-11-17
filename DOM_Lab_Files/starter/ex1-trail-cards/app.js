@@ -1,0 +1,23 @@
+// Exercise 1: Trail Cards
+// Your name:
+//
+// TODO list (chapter sections in brackets):
+//   1. Select #cards, #featured and #totalMiles once, at the top.
+//   2. Write createTrailCard(trail): a div with classes "card" and the
+//      trail's level, holding an <h3> with the name and a <p>
+//      like "5.1 miles, moderate". Use textContent. [2.1.1, 2.1.2]
+//   3. Collect all five cards in a DocumentFragment, then attach it to
+//      #cards in ONE step. [5.1.1]
+//   4. Show the LONGEST trail (found from the data) in #featured, as its
+//      own NEW card. All five cards must stay in #cards. [2.1.2]
+//   5. Show "Total: 25.9 miles" in #totalMiles, added up from the array
+//      (not read back from the page), with one decimal place.
+
+// The trail data is ready for you:
+const trails = [
+  { name: "Bear Creek Loop", miles: 2.4, level: "easy" },
+  { name: "Pine Ridge Trail", miles: 5.1, level: "moderate" },
+  { name: "Summit Lake Trail", miles: 8.7, level: "hard" },
+  { name: "Cedar Falls Trail", miles: 3.2, level: "easy" },
+  { name: "Elk Meadow Trail", miles: 6.5, level: "moderate" }
+];
