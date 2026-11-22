@@ -1,111 +1,36 @@
-// Exercise 2: Packing List (SOLUTION)
-const packForm = document.querySelector("#packForm");
-const itemInput = document.querySelector("#itemInput");
-const packList = document.querySelector("#packList");
-const emptyMsg = document.querySelector("#emptyMsg");
-const clearAllBtn = document.querySelector("#clearAll");
+// Exercise 3: Reorder the Trails (SOLUTION)
+const trailList = document.querySelector("#trailList");
 
-// Show the message only when the list has no items
-function updateEmptyMessage() {
-  emptyMsg.hidden = packList.children.length > 0;
-}
-
-// Build one <li> with createElement (Section 2.1)
-function addItem(text) {
-  const li = document.createElement("li");
-
-  const name = document.createElement("span");
-  name.className = "item-name";
-  name.textContent = text;            // user input: textContent only
-
-  const removeBtn = document.createElement("button");
-  removeBtn.type = "button";
-  removeBtn.className = "remove";
-  removeBtn.textContent = "Remove";
-  removeBtn.addEventListener("click", function () {
-    removeBtn.parentElement.remove(); // Remove the parent so it moves up one in the hierarchy 
-                                        // see Sections 2.2.1 and 3.1.1
-    updateEmptyMessage();
-
-  });
-
-  li.append(name, removeBtn);
-  packList.appendChild(li);
-  updateEmptyMessage();
-}
-
-packForm.addEventListener("submit", function (e) {
-  e.preventDefault();                 // don't reload the page
-  const text = itemInput.value.trim();
-  if (text === "") {
-    return;                           // ignore blank items
+// Up is disabled on the first trail, Down on the last
+function updateButtons() {
+  for (const trail of trailList.children) {
+    trail.querySelector(".up").disabled =
+      trail === trailList.firstElementChild;
+    trail.querySelector(".down").disabled =
+      trail === trailList.lastElementChild;
   }
-  addItem(text);
-  itemInput.value = "";
-  itemInput.focus();
-});
+}
 
-clearAllBtn.addEventListener("click", function () {
-  packList.replaceChildren();         // empty the list (Section 2.2.1)
-  updateEmptyMessage();
-});
-
-updateEmptyMessage();
-
-//-------------------------- Steve keyedin 
-
-//1.
-const packForm = document.querySelector("#packForm");
-const itemInput = document.querySelector("#itemInput");
-const packList = document.querySelector("#packList");
-const packList = document.querySelector("#packList");
-const clearAllBtn = document.querySelector("#clearAll");
-
-
-
-//2.
-packForm.addEventListener("submit", function (e) {
-  e.preventDefault();                 // don't reload the page
-  const text = itemInput.value.trim();
-  if (text === "") {
-    return;                           //4. ignore blank items
+// One listener on the list handles every button (event delegation)
+trailList.addEventListener("click", function (e) {
+  const button = e.target.closest("button");
+  if (!button) {
+    return;                        // a click on a name, not a button
   }
-  addItem(text);
-  itemInput.value = "";
-  itemInput.focus();
+  const trail = button.closest(".trail");     // Section 3.1.1
+
+  if (button.classList.contains("up")) {
+    const above = trail.previousElementSibling;  // Section 3.2.2
+    if (above) {
+      above.before(trail);         // moves the trail; doesn't copy it
+    }
+  } else if (button.classList.contains("down")) {
+    const below = trail.nextElementSibling;      // Section 3.2.1
+    if (below) {
+      below.after(trail);
+    }
+  }
+  updateButtons();
 });
 
-//3.
-function addItem(text){
-    const li = document.createElement("li");
-
-    const name = document.createElement("span");
-    name.className = "item-name"; //non-exit, inherit style from parent
-    name.textContent = text;
-
-    const removeBtn = document.createElement("button");
-    removeBtn.type = "button";
-    removeBtn.className = "remove";
-    removeBtn.textContent = "Remove";
-    removeBtn.addEventListener("click", function(){
-        removeBtn.parentElement.remove(); // See text 2.2.1 and 3.3.1
-        updateEmptyMessage();
-    })
-    li.append(name, removeBtn);
-    packList.appendChild(li);
-    updateEmptyMessage();
-}
-//6. show only when no items
-function updateEmptyMessage(){
-    emptyMsg.hidden = packList.children.length > 0;
-}
-
-//7. 
-clearAllBtn.addEventListener("click", function (){
-    packList.replaceChildren();  //empty the list (section 2.2.1)
-    updateEmptyMessage();
-});
-
-updateEmptyMessage();
-
-
+updateButtons();

@@ -10,3 +10,38 @@
 //   5. Down moves the trail below the trail after it. [3.2.1, Table 2]
 //   6. Disable Up on the first trail and Down on the last. Update the
 //      buttons when the page loads AND after every move.
+
+//1.
+const trailList = document.querySelector("#trailList");
+
+//6.
+function updateButtons() {
+  for (const trail of trailList.children) {
+    trail.querySelector(".up").disabled = trail === trailList.firstElementChild;
+    trail.querySelector(".down").disabled = trail === trail.lastElementChild;
+  }
+}
+
+trailList.addEventListener("click", function (e) {
+  const button = e.target.closest("button");
+  if (!button) {
+    return;
+  }
+  const trail = button.closest(".trail");
+
+  if (button.classList.contains("up")) {
+    const above = trail.previousElementSibling;
+    if (above) {
+      above.before(trail);
+    }
+  } else if (button.classList.contains("down")) {
+    const below = trail.nextElementSibling;
+    if (below) {
+      below.after(trail);
+    }
+  }
+
+  updateButtons();
+});
+
+updateButtons();
