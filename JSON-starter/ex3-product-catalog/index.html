@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 3: Product Catalog</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <h1>Trail Outfitters</h1>
+
+  <label for="categoryFilter">Category</label>
+  <select id="categoryFilter">
+    <option value="all">All</option>
+    <option value="shelter">Shelter</option>
+    <option value="sleep">Sleep</option>
+    <option value="cooking">Cooking</option>
+  </select>
+  <p id="productCount"></p>
+
+  <div id="products"></div>
+
+  <script id="productData" type="application/json">
+  [
+    { "sku": "TENT-2P", "name": "Two-Person Tent", "category": "shelter",
+      "price": 189.99, "stock": 4 },
+    { "sku": "FLY-XL", "name": "Rain Fly <XL>", "category": "shelter",
+      "price": 79.5, "stock": 0 },
+    { "sku": "BAG-20F", "name": "20° Sleeping Bag", "category": "sleep",
+      "price": 129.5, "stock": 0 },
+    { "sku": "PAD-INS", "name": "Insulated Sleeping Pad", "category": "sleep",
+      "price": 99, "stock": 7 },
+    { "sku": "STOVE-1", "name": "Canister Stove", "category": "cooking",
+      "price": 44, "stock": 12 },
+    { "sku": "POT-1L", "name": "1-Liter Titanium Pot", "category": "cooking",
+      "price": 39.95, "stock": 3 }
+  ]
+  </script>
+</body>
+</html>

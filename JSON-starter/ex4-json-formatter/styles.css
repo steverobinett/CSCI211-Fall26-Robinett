@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 640px;
+  margin: 2em auto;
+}
+textarea {
+  display: block;
+  width: 100%;
+  font-family: Consolas, monospace;
+}
+.error {
+  color: firebrick;
+  font-weight: bold;
+}
+#output {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 0.8em;
+  overflow-x: auto;
+}
+#output:empty {
+  display: none;
+}

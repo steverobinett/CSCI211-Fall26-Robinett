@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 5: Saved Preferences</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="theme-light">
+  <h1 id="greeting">Welcome!</h1>
+  <p id="tip">Tip: these settings are saved in your browser.</p>
+
+  <form id="prefsForm">
+    <label for="displayName">Display name</label>
+    <input type="text" id="displayName">
+
+    <label for="theme">Theme</label>
+    <select id="theme">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+
+    <label for="fontSize">Font size (px)</label>
+    <input type="number" id="fontSize" min="12" max="24" value="16">
+
+    <label><input type="checkbox" id="showTips" checked> Show tips</label>
+
+    <p>
+      <button type="submit">Save</button>
+      <button type="button" id="resetBtn">Reset</button>
+    </p>
+  </form>
+  <p id="status"></p>
+</body>
+</html>

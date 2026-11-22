@@ -1,0 +1,24 @@
+[hidden] {
+  display: none;
+}
+body {
+  font-family: Arial, sans-serif;
+  max-width: 460px;
+  margin: 2em auto;
+  padding: 1em;
+}
+form {
+  display: grid;
+  gap: 6px;
+}
+.theme-light {
+  background: #ffffff;
+  color: #1f2430;
+}
+.theme-dark {
+  background: #1f2430;
+  color: #f1f3f6;
+}
+#tip {
+  font-style: italic;
+}

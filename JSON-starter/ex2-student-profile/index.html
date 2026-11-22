@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 2: Student Profile Card</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <h1>Student Profiles</h1>
+
+  <label for="studentPick">Student</label>
+  <select id="studentPick">
+    <option value="0">Student 1</option>
+    <option value="1">Student 2</option>
+    <option value="2">Student 3</option>
+  </select>
+
+  <div class="card">
+    <h2 id="studentName"></h2>
+    <p>Email: <span id="studentEmail"></span></p>
+    <p>Phone: <span id="studentPhone"></span></p>
+    <p><span id="courseCount"></span>, <span id="totalCredits"></span></p>
+    <ul id="courseList"></ul>
+  </div>
+</body>
+</html>
