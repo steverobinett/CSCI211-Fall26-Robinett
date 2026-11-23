@@ -21,4 +21,10 @@ const s4 = `{"zip": "07401", "rating": NaN, "note": undefined}`;
 
 const results = document.querySelector("#results");
 
+//Here is where we check to see if parse() is successful
 // as we fix, just change the s1 to s2, etc
+
+let obj = JSON.parse(s1);
+for (const v of Object.values(obj)) {
+  console.log(`${v}`);
+}
