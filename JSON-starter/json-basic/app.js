@@ -1,5 +1,5 @@
 /*
-Each of these strings (s1 ...s5) contains an error in
+Each of these strings (s1 ...s4) contains an error in
 JSON construction.In this lab, we will:
   1. take the examples one at a time and see the 
      error in the dev tools console
@@ -10,13 +10,10 @@ JSON construction.In this lab, we will:
 
 //In a real-world scenario, these strings would be coming in
 // from an extenal call (API call, some other function)
-const s1 = `{'course': 'CSCI 101', 'credits': 3}`;
-
-const s2 = `{"name": "Bear Creek Loop" "miles": 2.4,}`;
-
-const s3 = `{"open": True, "closedReason": None, "dogsAllowed": False}`;
-
-const s4 = `{"zip": "07401", "rating": NaN, "note": undefined}`;
+const s1 = `{"course": "CSCI 101", "credits": 3}`;
+const s2 = `{"name": "Bear Creek Loop", "miles": 2.4}`;
+const s3 = `{"open": true, "closedReason": null, "dogsAllowed": false}`;
+const s4 = `{"zip": "07401", "rating": null, "note": null}`;
 
 
 const results = document.querySelector("#results");
@@ -24,7 +21,20 @@ const results = document.querySelector("#results");
 //Here is where we check to see if parse() is successful
 // as we fix, just change the s1 to s2, etc
 
-let obj = JSON.parse(s1);
+let obj = JSON.parse(s4);
 for (const v of Object.values(obj)) {
   console.log(`${v}`);
+}
+
+let allExamples = [s1, s2, s3, s4];
+for(const example of allExamples){
+  let listStr = "";
+  let obj = JSON.parse(example);
+  let listItem = document.createElement("li");
+  for(const [key, value] of Object.entries(obj)){
+    listStr += `${key} --> ${value}`;
+    console.log(`${listStr}`);
+  }
+  listItem.textContent = listStr;
+  results.append(listItem);
 }
