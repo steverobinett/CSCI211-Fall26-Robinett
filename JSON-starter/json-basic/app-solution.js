@@ -23,10 +23,12 @@ const s5 = `[{"item": "tent", "qty": 1},
 const results = document.querySelector("#results");
 
 // as we fix, just change the s1 to s2, etc
-// let obj = JSON.parse(s5);
-// for (const v of Object.values(obj)) {
-//   console.log(`${v}`);
-// }
+let obj = JSON.parse(s1);
+for (const v of Object.values(obj)) {
+  console.log(`${v}`);
+}
+
+
 let allExamples = [s1, s2, s3, s4];
 //Construct a string and add as a list item
 
