@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 640px;
+  margin: 2em auto;
+}
+#results {
+  list-style: none;
+  padding: 0;
+}
+#results li {
+  margin-bottom: 1em;
+}
+.status {
+  font-weight: bold;
+}
+.status.valid {
+  color: seagreen;
+}
+.status.invalid {
+  color: firebrick;
+}
+pre {
+  background: #f1f3f6;
+  padding: 0.6em;
+  overflow-x: auto;
+}
