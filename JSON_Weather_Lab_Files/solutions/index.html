@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSON Weather Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <h1>Great Falls Area Forecast</h1>
+
+  <!-- Part 1 -->
+  <p id="location"></p>
+
+  <!-- Part 2 -->
+  <p id="today"></p>
+
+  <!-- Part 3 -->
+  <h2>4-Day Forecast</h2>
+  <ul id="forecast"></ul>
+
+  <!-- Part 4 -->
+  <h2>The Days as JSON</h2>
+  <p id="windy"></p>
+  <pre id="output"></pre>
+
+  <!-- The data: JSON text that the browser stores but does not run.
+       Don't edit it. It's the same as weatherData.json. -->
+  <script id="weatherData" type="application/json">
+{
+    "latitude": 47.48983,
+    "longitude": -111.31442,
+    "generationtime_ms": 1.484513282775879,
+    "utc_offset_seconds": -25200,
+    "timezone": "America/Denver",
+    "timezone_abbreviation": "GMT-7",
+    "elevation": 1015,
+    "daily_units": {
+        "time": "iso8601",
+        "weather_code": "wmo code",
+        "temperature_2m_min": "°F",
+        "temperature_2m_max": "°F",
+        "wind_speed_10m_max": "mp/h"
+    },
+    "daily": {
+        "time": [
+            "2026-11-23",
+            "2026-11-24",
+            "2026-11-25",
+            "2026-11-26"
+        ],
+        "weather_code": [
+            45,
+            3,
+            3,
+            3
+        ],
+        "temperature_2m_min": [
+            3.3,
+            20.7,
+            25.2,
+            25.4
+        ],
+        "temperature_2m_max": [
+            32.2,
+            37.5,
+            38.6,
+            43.2
+        ],
+        "wind_speed_10m_max": [
+            2.8,
+            5,
+            11.6,
+            23.5
+        ]
+    }
+}
+  </script>
+</body>
+</html>
